@@ -11,7 +11,7 @@ int main()
     while(n<1 || n>8);
     for(int row=1; row<=n; row++)
     {
-        for(int col=0; col<=n-row; col++)
+        for(int col=1; col<=n-row; col++)
         {
             printf(" ");
         }
