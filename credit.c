@@ -67,11 +67,16 @@ int main()
         else if((i == 13 || i == 16) && (n%10 == 4))
         {
             printf("VISA\n");
+            printf("n is %ld", n);
         }
         else
         {
             printf("INVALID\n");
         }
+    }
+    else
+    {
+        printf("INVALID checksum\n");
     }
     return (0);
 }
