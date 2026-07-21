@@ -39,7 +39,7 @@ int main()
             total = total + y;
         }
 
-    if(total % 10 != 0)
+    if(total % 10 == 0)
     {
     // code for checking type of card
         i = 0;
