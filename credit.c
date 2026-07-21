@@ -64,10 +64,9 @@ int main()
         {
             printf("MASTERCARD\n");
         }
-        else if((i == 13 || i == 16) && (n%10 == 4))
+        else if((i == 13 || i == 16) && (n/10 == 4))
         {
             printf("VISA\n");
-            printf("n is %ld", n);
         }
         else
         {
@@ -76,7 +75,7 @@ int main()
     }
     else
     {
-        printf("INVALID checksum\n");
+        printf("INVALID\n");
     }
     return (0);
 }
