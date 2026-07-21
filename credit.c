@@ -4,8 +4,7 @@
 int main()
 {
     long temp, n, x, y, i, total = 0, sum = 0, c = 0;
-    do
-    {
+
  //code for checksum
         n = get_long("Enter your card number : ");
         temp = n;
@@ -39,10 +38,10 @@ int main()
             y = temp % 10;
             total = total + y;
         }
-    }
-    while(total % 10 != 0);
 
-        // code for checking type of card
+    if(total % 10 != 0)
+    {
+    // code for checking type of card
         i = 0;
         temp = n;
         do  //count no. of digits
@@ -73,5 +72,6 @@ int main()
         {
             printf("INVALID\n");
         }
+    }
     return (0);
 }
