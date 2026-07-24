@@ -26,14 +26,11 @@ int main(void)
         i++;
     }
     while (text[i] != '\0');
-    //printf("l: %i w: %i s: %i\n", l, w, s);
     // claculating avarage per 100 words
     float L = l * 100 / (float) w;
     float S = s * 100 / (float) w;
-    //printf("L: %f S: %f\n", L, S);
     // calculating Coleman-Liau index
     float index = 0.0588 * L - 0.296 * S - 15.8;
-    //printf("index is %f\n", index);
     // calculating grade level
     if (index < 1)
     {
