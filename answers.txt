@@ -1,0 +1,11 @@
+sort1 uses: BUBBLE SORT
+
+How do you know?: It took the most amount of time for all three random.txt files. From the final visualization in the Lecture, I know that bubble sort is the slowest of all three. It was also the fastest for all sorted.txt files, which indicates bubble sort (if no swap, exit) method.
+
+sort2 uses: MERGE SORT
+
+How do you know?: It was the fastest by a huge margin for all three random.txt files. From above mentioned visualization, I know that merge sort is the fastest method by far.
+
+sort3 uses: LINEAR SEARCH
+
+How do you know?: Its time was in between sort1 and sort2. From above mentioned visualization, I know that linear search falls in between the other two methods. Also, it took nearly the same amount of time for unsorted50000.txt and sorted50000.txt, which indicates that the program used the same method for both txt files.
