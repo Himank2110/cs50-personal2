@@ -6,6 +6,6 @@ sort2 uses: MERGE SORT
 
 How do you know?: It was the fastest by a huge margin for all three random.txt files. From above mentioned visualization, I know that merge sort is the fastest method by far.
 
-sort3 uses: LINEAR SEARCH
+sort3 uses: SELECTION SORT
 
 How do you know?: Its time was in between sort1 and sort2. From above mentioned visualization, I know that linear search falls in between the other two methods. Also, it took nearly the same amount of time for unsorted50000.txt and sorted50000.txt, which indicates that the program used the same method for both txt files.
