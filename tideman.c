@@ -165,11 +165,11 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     bool detect = false;
-    for (int i = 0; i < pair_count - 3; i++)
+    for (int i = 0; i < pair_count - 2; i++)
     {
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
-    for (int i = 0; i < pair_count - 3; i++)
+    for (int i = 0; i < pair_count - 2; i++)
     {
         if(locked[pairs[i].winner][pairs[i].loser] == false)
         {
@@ -179,7 +179,7 @@ void lock_pairs(void)
     }
     if (detect == true)
     {
-       locked[pairs[pair_count - 2].winner][pairs[pair_count - 2].loser] = true;
+       locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = true;
     }
     return;
 }
