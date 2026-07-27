@@ -130,9 +130,9 @@ void add_pairs(void)
 {
     int l = 0;
     //preferences[i][j] means i is preferred to j
-    for (int i = 0; i < candidate_count - 1; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < candidate_count - 1; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             if (preferences[i][j] > preferences[j][i])
             {
@@ -141,7 +141,7 @@ void add_pairs(void)
                 l++;
             }
         }
-        pair_count = l + 1;
+        pair_count = l;
     }
     return;
 }
@@ -149,9 +149,9 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    for (int i = 0; i < pair_count - 2; i++)
+    for (int i = 0; i < pair_count - 1; i++)
     {
-        if (preferences[pairs[i+1].winner] < preferences[pairs[i].winner])
+        if (preferences[pairs[i].winner][pairs[i].loser] < preferences[pairs[i + 1].winner][pairs[i + 1].loser])
         {
             pair temp = pairs[i];
             pairs[i] = pairs[i+1];
@@ -165,11 +165,11 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     bool detect = false;
-    for (int i = 0; i < pair_count - 2; i++)
+    for (int i = 0; i < pair_count - 1; i++)
     {
         locked[pairs[i].winner][pairs[i].loser] = true;
     }
-    for (int i = 0; i < pair_count - 2; i++)
+    for (int i = 0; i < pair_count - 1; i++)
     {
         if(locked[pairs[i].winner][pairs[i].loser] == false)
         {
@@ -179,7 +179,7 @@ void lock_pairs(void)
     }
     if (detect == true)
     {
-       locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = true;
+       locked[pairs[pair_count].winner][pairs[pair_count].loser] = true;
     }
     return;
 }
@@ -187,10 +187,10 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    bool find = true;
-    for (int j = 0; j < pair_count - 1; j++)
+    for (int j = 0; j < pair_count; j++)
     {
-        for (int i = 0; i < pair_count - 1; i++)
+        bool find = true;
+        for (int i = 0; i < pair_count; i++)
         {
             if (locked[i][j] == true)
             {
