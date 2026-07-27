@@ -130,7 +130,7 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     int l = 0;
-    //preferences[i][j] means i is preferred to j
+    // preferences[i][j] means i is preferred to j
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -155,10 +155,11 @@ void sort_pairs(void)
         bool swap = false;
         for (int i = pair_count; i > 0; i--)
         {
-            if (preferences[pairs[i].winner][pairs[i].loser] > preferences[pairs[i - 1].winner][pairs[i - 1].loser])
+            if (preferences[pairs[i].winner][pairs[i].loser] >
+                preferences[pairs[i - 1].winner][pairs[i - 1].loser])
             {
-                pair temp = pairs[i-1];
-                pairs[i-1] = pairs[i];
+                pair temp = pairs[i - 1];
+                pairs[i - 1] = pairs[i];
                 pairs[i] = temp;
                 swap = true;
             }
@@ -194,7 +195,7 @@ bool path(int from, int to)
     {
         return true;
     }
-    for(int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (locked[from][i] == true)
         {
