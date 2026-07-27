@@ -130,7 +130,7 @@ void add_pairs(void)
 {
     int l = 0;
     //preferences[i][j] means i is preferred to j
-    for (int i = 0; i < candidate_count - 1; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
@@ -151,7 +151,7 @@ void sort_pairs(void)
 {
     for (int i = 0; i < pair_count - 2; i++)
     {
-        if (preferences[pairs[i+1].winner] > preferences[pairs[i].winner])
+        if (preferences[pairs[i+1].winner] < preferences[pairs[i].winner])
         {
             pair temp = pairs[i];
             pairs[i] = pairs[i+1];
