@@ -174,7 +174,7 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    for (int i = 0; i < pair_count - 1; i++)
+    for (int i = 0; i < pair_count; i++)
     {
         printf("going to check %ith index pair\n", i);
         if (path(pairs[i].loser, pairs[i].winner) == false)
