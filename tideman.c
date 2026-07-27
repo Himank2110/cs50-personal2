@@ -32,6 +32,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool path(int from, int to);
 
 int main(int argc, string argv[])
 {
@@ -173,26 +174,33 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    bool detect = true;
     for (int i = 0; i < pair_count - 1; i++)
     {
-        locked[pairs[i].winner][pairs[i].loser] = true;
-    }
-    for (int i = 0; i < pair_count - 1; i++)
-    {
-        if(locked[pairs[i].winner][pairs[i].loser] == false)
+        if (path(pairs[i].loser, pairs[i].winner) == false)
         {
-            detect = false;
-            break;
+            locked[pairs[i].winner][pairs[i].loser] = true;
         }
     }
-    if (detect == false)
-    {
-       locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = true;
-    }
+
     return;
 }
 
+// Check for path from Y to X before lock_pairs locks X to Y
+bool path(int from, int to)
+{
+    if (locked[from][to] == true)
+    {
+        return true;
+    }
+    for(int i = 0; i < pair_count; i++)
+    {
+        if (locked[from][i] == true)
+        {
+            path(i, to);
+        }
+    }
+    return false;
+}
 // Print the winner of the election
 void print_winner(void)
 {
