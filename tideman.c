@@ -149,10 +149,10 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    for (int j = pair_count - 1; j > 0; j--)
+    for (int j = pair_count; j > 0; j--)
     {
         bool swap = false;
-        for (int i = pair_count - 1; i > j; i--)
+        for (int i = pair_count; i > 0; i--)
         {
             if (preferences[pairs[i].winner][pairs[i].loser] > preferences[pairs[i - 1].winner][pairs[i - 1].loser])
             {
