@@ -176,6 +176,7 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count - 1; i++)
     {
+        printf("going to check %ith index pair\n", i);
         if (path(pairs[i].loser, pairs[i].winner) == false)
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
@@ -188,15 +189,19 @@ void lock_pairs(void)
 // Check for path from Y to X before lock_pairs locks X to Y
 bool path(int from, int to)
 {
+    printf("from is %i and to is %i\n", from, to);
     if (locked[from][to] == true)
     {
         return true;
     }
-    for(int i = 0; i < pair_count; i++)
+    for(int i = 0; i < candidate_count; i++)
     {
         if (locked[from][i] == true)
         {
-            path(i, to);
+            if (path(i, to) == true)
+            {
+                return true;
+            }
         }
     }
     return false;
