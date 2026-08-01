@@ -32,15 +32,17 @@ int main(int argc, char *argv[])
     }
 
     float factor = atof(argv[3]);
-
+    
+    // copies the header
     uint8_t header[HEADER_SIZE];
     fread(header, HEADER_SIZE, 1, input);
     fwrite(header, HEADER_SIZE, 1, output);
 
+    // copies the samples, one at a time until done
     int16_t buffer;
-    while(fread(&buffer, sizeof(int16_t), 1, input) != 0)
+    while (fread(&buffer, sizeof(int16_t), 1, input) != 0)
     {
-        buffer = buffer * factor;
+        buffer = buffer * factor; // scales the audio by chosen factor
         fwrite(&buffer, sizeof(int16_t), 1, output);
     }
 
