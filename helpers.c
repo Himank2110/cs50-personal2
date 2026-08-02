@@ -195,11 +195,17 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             GyG = rgbtGreen;
             GyB = rgbtBlue;
 
-            image[i][j].rgbtRed = round(sqrt(GxR * GxR + GyR * GyR));
-            image[i][j].rgbtGreen = round(sqrt(GxG * GxG + GyG * GyG));
-            int x = round(sqrt(GxB * GxB + GyB * GyB));
+            int x = round(sqrt(GxR * GxR + GyR * GyR));
+            int y = round(sqrt(GxG * GxG + GyG * GyG));
+            int z = round(sqrt(GxB * GxB + GyB * GyB));
+
             if (x > 255){x = 255;}
-            image[i][j].rgbtBlue = x;
+            if (y > 255){y = 255;}
+            if (z > 255){z = 255;}
+
+            image[i][j].rgbtRed = x;
+            image[i][j].rgbtGreen = y;
+            image[i][j].rgbtBlue = z;
         }
     }
     return;
