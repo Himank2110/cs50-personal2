@@ -154,13 +154,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             rgbtBlue = 0;
             for (int l = j - 1; l <= j + 1; l++)
             {
-                if (l < 0 || l >= height){continue;}
+                if (l < 0 || l >= width){continue;}
                 if (l == j - 1 || l == j + 1)
                 {
                     factor = -1;
                     for (int k = i - 1; k <= i + 1; k++)
                     {
-                        if (k < 0 || k >= width)
+                        if (k < 0 || k >= height)
                         {
                             factor++;
                             continue;
@@ -177,7 +177,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     factor = -2;
                     for (int k = i - 1; k <= i + 1; k++)
                     {
-                        if (k < 0 || k >= width)
+                        if (k < 0 || k >= height)
                         {
                             factor += 2;
                             continue;
