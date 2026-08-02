@@ -165,9 +165,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             factor++;
                             continue;
                         }
-                        rgbtRed += factor * copy[l][k].rgbtRed;
-                        rgbtGreen += factor * copy[l][k].rgbtGreen;
-                        rgbtBlue += factor * copy[l][k].rgbtBlue;
+                        rgbtRed += factor * copy[k][l].rgbtRed;
+                        rgbtGreen += factor * copy[k][l].rgbtGreen;
+                        rgbtBlue += factor * copy[k][l].rgbtBlue;
                         //n++;
                         factor++;
                     }
@@ -182,9 +182,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             factor += 2;
                             continue;
                         }
-                        rgbtRed += factor * copy[l][k].rgbtRed;
-                        rgbtGreen += factor * copy[l][k].rgbtGreen;
-                        rgbtBlue += factor * copy[l][k].rgbtBlue;
+                        rgbtRed += factor * copy[k][l].rgbtRed;
+                        rgbtGreen += factor * copy[k][l].rgbtGreen;
+                        rgbtBlue += factor * copy[k][l].rgbtBlue;
                         //n++;
                         factor += 2;
                     }
