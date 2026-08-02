@@ -141,10 +141,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            RGBTRIPLE Gx;
-            Gx.rgbtRed = rgbtRed;
-            Gx.rgbtGreen = rgbtGreen;
-            Gx.rgbtBlue = rgbtBlue;
+            int GxR, GxG, GxB;
+            GxR = rgbtRed;
+            GxG = rgbtGreen;
+            GxB = rgbtBlue;
 
             // for Gy
 
@@ -190,14 +190,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            RGBTRIPLE Gy;
-            Gy.rgbtRed = rgbtRed;
-            Gy.rgbtGreen = rgbtGreen;
-            Gy.rgbtBlue = rgbtBlue;
+            int GyR, GyG, GyB;
+            GyR = rgbtRed;
+            GyG = rgbtGreen;
+            GyB = rgbtBlue;
 
-            image[i][j].rgbtRed = round(sqrt(Gx.rgbtRed * Gx.rgbtRed + Gy.rgbtRed * Gy.rgbtRed));
-            image[i][j].rgbtGreen = round(sqrt(Gx.rgbtGreen * Gx.rgbtGreen + Gy.rgbtGreen * Gy.rgbtGreen));
-            image[i][j].rgbtBlue = round(sqrt(Gx.rgbtBlue * Gx.rgbtBlue + Gy.rgbtBlue * Gy.rgbtBlue));
+            image[i][j].rgbtRed = round(sqrt(GxR * GxR + GyR * GyR));
+            image[i][j].rgbtGreen = round(sqrt(GxG * GxG + GyG * GyG));
+            image[i][j].rgbtBlue = round(sqrt(GxB * GxB + GyB * GyB));
         }
     }
     return;
