@@ -1,13 +1,13 @@
 // Implements a dictionary's functionality
 
+#include "dictionary.h"
 #include <ctype.h>
+#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include "dictionary.h"
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#include <math.h>
 // Represents a node in a hash table
 typedef struct node
 {
@@ -50,19 +50,14 @@ unsigned int hash(const char *word)
     {
         sum += (toupper(word[i]) - 'A') * (int) pow(26, i);
         i++;
-        if (i == 3){break;}
+        if (i == 3)
+        {
+            break; // Only checks the first 3 letters to get hash value
+        }
     }
     return sum % N;
 }
-/*     if (word[1] != '\0')
-    {
-        return ((toupper(word[0]) - 'A') * 26) +  toupper(word[1]) - 'A';
-    }
-    else
-    {
-        return ((toupper(word[0]) - 'A') * 26);
-    }
-*/
+
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
@@ -73,7 +68,7 @@ bool load(const char *dictionary)
         return false;
     }
     char word[LENGTH + 1];
-    while(fscanf(d, "%s", word) != EOF)
+    while (fscanf(d, "%s", word) != EOF) // Loop until end of file(EOF)
     {
         count++;
         node *n = malloc(sizeof(node));
@@ -82,7 +77,7 @@ bool load(const char *dictionary)
             printf("Could not allocate memory\n");
             return false;
         }
-        strcpy(n->word, word);
+        strcpy(n->word, word); // Copies each word from dictionary to table in memory
         int i = hash(n->word);
         n->next = table[i];
         table[i] = n;
